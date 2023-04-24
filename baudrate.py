@@ -129,9 +129,7 @@ class Baudrate:
             if start_time == 0:
                 start_time = time.time()
 
-            byte = self.serial.read(1)
-
-            if byte:
+            if byte := self.serial.read(1):
                 if self.auto_detect and byte in self.valid_characters:
                     if byte in self.WHITESPACE:
                         whitespace += 1
